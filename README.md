@@ -1,13 +1,13 @@
-# Himanshu Office Time Tracker (MERN)
+# Office Time Tracker (MERN)
 
 React + Vite + Tailwind | Express | MongoDB Atlas | JWT | Recharts | xlsx + jsPDF
 
 ## Folder structure
 ```
-himanshu-office-time-tracker/
+Office-time-tracker/
 ├── package.json            (helper scripts)
 ├── server/
-│   ├── .env.example
+│   ├── .env
 │   └── src/
 │       ├── server.js
 │       ├── config/db.js
@@ -16,7 +16,7 @@ himanshu-office-time-tracker/
 │       ├── routes/         auth.js, attendance.js, reports.js, settings.js, admin.js
 │       └── utils/          calc.js (time engine), calc.test.js, mail.js
 └── client/
-    ├── .env.example
+    ├── .env
     └── src/
         ├── App.jsx, main.jsx, api.js, index.css
         ├── context/        AuthContext.jsx, ThemeContext.jsx
@@ -34,12 +34,12 @@ himanshu-office-time-tracker/
 
 ## 2. Run in VS Code (two terminals)
 ```bash
-cd himanshu-office-time-tracker
+cd Office-time-tracker
 npm run install:all
 
 # Terminal 1: backend
 cd server
-cp .env.example .env        # Windows: copy .env.example .env  (then edit MONGODB_URI and JWT_SECRET)
+cp .env                     # Windows: copy .env  (then edit MONGODB_URI and JWT_SECRET)
 npm run dev                 # http://localhost:5000, should print "MongoDB connected"
 
 # Terminal 2: frontend
