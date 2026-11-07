@@ -1,0 +1,16 @@
+const assert = require('assert');
+const { calculate, fmt } = require('./calc');
+let r = calculate({ inTime: '09:52', outTime: '23:14', breakMinutes: 0, overtimeStartTime: '19:30' });
+assert.strictEqual(fmt(r.totalWorkingMinutes), '13h 22m');
+assert.strictEqual(fmt(r.overtimeMinutes), '3h 44m');
+r = calculate({ inTime: '10:00', outTime: '01:30', breakMinutes: 0, overtimeStartTime: '19:30' });
+assert.strictEqual(fmt(r.totalWorkingMinutes), '15h 30m');
+assert.strictEqual(fmt(r.overtimeMinutes), '6h 00m');
+assert.ok(r.crossesMidnight);
+r = calculate({ inTime: '09:00', outTime: '18:00', breakMinutes: 60, overtimeStartTime: '19:30' });
+assert.strictEqual(fmt(r.totalWorkingMinutes), '8h 00m');
+assert.strictEqual(r.overtimeMinutes, 0);
+r = calculate({ inTime: '09:52', outTime: '23:14', breakMinutes: 45, overtimeStartTime: '20:00' });
+assert.strictEqual(fmt(r.totalWorkingMinutes), '12h 37m');
+assert.strictEqual(fmt(r.overtimeMinutes), '3h 14m');
+console.log('All calculation tests passed');
